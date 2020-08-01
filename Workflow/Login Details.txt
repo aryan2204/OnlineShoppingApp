@@ -1,0 +1,61 @@
+The flow according to me.
+
+
+1.    Login User, Retalior or Admin 
+
+2.    Dashboard for each after log in
+
+a)    To User -> Product display with ID, name, Picture(if any),brand and Price 
+	a1-> Display Buttons to Add Product to Basket.
+	a2 -> A button to display basket and Remove Product if needed
+	a3 -> Total Bill 
+b)    To Admin -> Product Display with ID name, Picture(if any),brand , price and Quantity
+	b1 -> Display text field to input into Quantity ( For addition ) 
+	b3 -> Remove Product or Row
+	b4 -> Update Price Button and stock
+
+3.    Basket
+a)    Final Purchase and Bill 
+c)    Thank You Page
+
+4)    Store Customer Record in a table
+5)    Show Customer their current details when clicking a button
+
+**************************************************************************************
+
+TABLES 
+
+1) 
+
+CREATE TABLE ProducteDetails (
+ProdID int NOT NULL PRIMARY KEY,
+Product_Name nvarchar(10) NOT NULL,
+Quantity int NOT NULL, 
+Price float NOT NULL,
+Prod_Description nvarchar(20) NOT NULL
+);
+
+---------------------------------------------
+
+--------------------------------------------
+create table AdminDetails
+(
+AdminID int PRIMARY KEY,
+AdminName nvarchar(10),
+username varchar(10),
+password varchar(10)
+);
+--------------------------------------------
+
+3)
+Create Table CutomerInfo(
+User_Name nvarchar(10) NOT NULL,
+UserEmail nvarchar(20) Not null,
+MobileNumber nvarchar(10) NOT NULL,
+UID Int Identity(101,1) NOT NULL,
+Pass nvarchar(1) NOT NULL,
+Address varchar(30)
+)
+
+***************************************
+

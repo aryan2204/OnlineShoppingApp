@@ -35,3 +35,15 @@ RetailorName nvarchar(10),
 Rusername varchar(10),
 password varchar(10)
 );
+-----------------------------------------------------
+
+ALTER TABLE AdminDetails
+  ALTER COLUMN username nvarchar(20);
+
+  ALTER TABLE AdminDetails
+  ALTER COLUMN password nvarchar(20);
+
+
+insert into AdminDetails values(101,'Babu Rao','Mike911','qwerty@1')
+
+insert into AdminDetails values(102,'Gopal','JamesBond20','random@123')

@@ -47,3 +47,17 @@ ALTER TABLE AdminDetails
 insert into AdminDetails values(101,'Babu Rao','Mike911','qwerty@1')
 
 insert into AdminDetails values(102,'Gopal','JamesBond20','random@123')
+
+----------------------------------------------------
+
+ALTER TABLE CutomerInfo
+  ALTER COLUMN User_Name  nvarchar(20);
+
+ALTER TABLE CutomerInfo
+  ALTER COLUMN UserEmail nvarchar(30);
+
+  ALTER TABLE CutomerInfo
+  ALTER COLUMN Pass nvarchar(20);
+
+    ALTER TABLE CutomerInfo
+  ALTER COLUMN Address nvarchar(50);

@@ -33,6 +33,7 @@ create table RetailorDetails
 RetailorID int PRIMARY KEY,
 RetailorName nvarchar(10),
 Rusername varchar(10),
+Retailer_Email nvarchar(30),
 password varchar(10)
 );
 -----------------------------------------------------
@@ -61,3 +62,11 @@ ALTER TABLE CutomerInfo
 
     ALTER TABLE CutomerInfo
   ALTER COLUMN Address nvarchar(50);
+
+
+
+
+  select * from CutomerInfo
+
+insert into CutomerInfo values('Sam Wilson','samwilson12@gmail.com','9509578945','NightFury@90','40-wilson park, Manhatten,XYZ')
+insert into CutomerInfo values('David Warner','warerdavid12@gmail.com','7854957945','Australia@90','10-Patrik Road,Melbourne,Australia')

@@ -26,3 +26,21 @@ as
 begin 
 select * from ProducteDetails
 end
+
+create proc UpdateAdminPassword(@pass nvarchar(20), @name nvarchar(20))
+as 
+begin 
+update AdminDetails set password = @pass where username = @name
+end
+
+create proc UpdateCustomerPassword(@pass nvarchar(20), @name nvarchar(20))
+as 
+begin 
+update CutomerInfo set Pass = @pass where User_Name = @name
+end
+
+create proc UpdateRetailerPassword(@pass nvarchar(20), @name nvarchar(20))
+as 
+begin 
+update RetailorDetails set password = @pass where Rusername= @name
+end

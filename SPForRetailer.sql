@@ -11,3 +11,11 @@ as
 begin 
 delete from ProducteDetails where ProdID = @id 
 end
+
+drop proc DeleteProductForRetailer
+
+create proc DeleteProductForRetailer(@name nvarchar(20))
+as
+begin 
+delete from ProducteDetails where Product_Name = @name
+end

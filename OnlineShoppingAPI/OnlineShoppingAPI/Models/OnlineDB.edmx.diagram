@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c4ab46b736d4d9ebb2e1f6ed68fb809" Name="Diagram1">
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.AdminInfo" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.Category" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.Customer" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.Order" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.Payment" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.ProductDetail" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.Retailer" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_OnlineShoppingModel.sysdiagram" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__ProductDe__Categ__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__Orders__Customer__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__OrderDeta__Order__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__OrderDeta__Produ__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__Orders__Payment___21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="db_OnlineShoppingModel.FK__ProductDe__Retai__1BFD2C07" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

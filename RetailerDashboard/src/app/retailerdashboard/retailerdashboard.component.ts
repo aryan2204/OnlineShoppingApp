@@ -14,6 +14,9 @@ export class RetailerdashboardComponent implements OnInit {
   showModal: Boolean;
   product:RetProduct;
   products;
+  productIdtoUpdate = null; 
+message = null;
+datasaved = false;
   constructor(private retprodService:RetProductService,private fb: FormBuilder) { 
     this.product = new RetProduct();
     this.myForm= this.fb.group({
@@ -110,21 +113,32 @@ export class RetailerdashboardComponent implements OnInit {
       this.product.Category_Id =this.Category.value;
       this.product.Retailer_Id =this.Retailer.value;
       this.product.BrandName =this.Brand.value;
-      this.retprodService.AddProduct(this.product).subscribe((data)=>
+      if(this.productIdtoUpdate==null)
       {
-        //console.log(data);
-        this.products = data as [];
-      })
+        this.retprodService.AddProduct(this.product).subscribe(()=>
+        {
+          //console.log(data);
+          //this.products = data;
+          this.datasaved = true;
+          this.message = "Data Inserted";
+          this.retprodService.getProducts();
+          this.productIdtoUpdate = null;
+          this.myForm.reset();
+        });
+      } 
       this.hide();
     }
   }
-// delete()
-// {
-//   this.prodService.delProduct(this.id).subscribe((data)=>
-//   {
-//     console.log(data);
-//   })
-// }
+  Delete(prodId:string)
+{
+this.retprodService.delProduct(prodId).subscribe(()=>
+{
+  this.message = "Deleted";
+  this.retprodService.getProducts();
+  this.productIdtoUpdate = null;
+  this.myForm.reset();
+})
+}
   onClose(){
     this.myForm.reset();
   }

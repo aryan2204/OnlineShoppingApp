@@ -7,11 +7,13 @@ import { RetailerdashboardComponent } from './retailerdashboard/retailerdashboar
 import { RetProductService } from './service/retailerProductService';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RetailerdashboardComponent
+    RetailerdashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

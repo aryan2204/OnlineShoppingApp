@@ -1,6 +1,6 @@
 export class Product
 {
-   Product_Id :number;
+   Product_Id :string;
    Product_Name:string;
    Quantity:number;
    Unit_Price:number;

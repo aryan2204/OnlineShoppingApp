@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/productService';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { Product } from '../models/product';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-productview',
@@ -14,6 +15,10 @@ myForm:FormGroup;
 showToggle:Boolean;
 showModal: Boolean;
 product:Product;
+allProducts:Observable<Product[]>;
+productIdtoUpdate = null; 
+message = null;
+datasaved = false;
 id:number;
 
   constructor(private prodService:ProductService,private fb: FormBuilder) { 
@@ -113,29 +118,73 @@ id:number;
       this.product.Category_Id=this.Category.value;
       this.product.Retailer_Id=this.Retailer.value;
       this.product.BrandName=this.Brand.value;
-      this.prodService.postProduct(this.product).subscribe((data)=>
+      if(this.productIdtoUpdate==null)
       {
-        //console.log(data);
-        this.products = data as [];
-      })
+        this.prodService.postProduct(this.product).subscribe(()=>
+        {
+          //console.log(data);
+          //this.products = data;
+          this.datasaved = true;
+          this.message = "Data Inserted";
+          this.prodService.getProducts();
+          this.productIdtoUpdate = null;
+          this.myForm.reset();
+        });
+      } 
+      else
+      {
+        this.product.Product_Id= this.productIdtoUpdate;
+        this.prodService.putProduct(this.product).subscribe(()=>
+        {
+          this.datasaved = true;
+          this.message = "Data Updated";
+          this.prodService.getProducts();
+          this.productIdtoUpdate = null;
+          this.myForm.reset();
+        });
+      }  
       this.hide();
     }
   }
-delete()
+Edit(prodId:string)
 {
-  this.prodService.delProduct(this.id).subscribe((data)=>
+this.prodService.getProdById(prodId).subscribe(prod=>
   {
-    console.log(data);
-  })
+    this.message=null;
+    this.datasaved = false;
+    this.productIdtoUpdate=prod.Product_Id;
+    this.myForm.controls['Product_Id'].setValue(prod.Product_Id);
+    this.myForm.controls['Product_Name'].setValue(prod.Product_Name);
+    this.myForm.controls['Quantity'].setValue(prod.Quantity);
+    this.myForm.controls['Product_Description'].setValue(prod.Product_Description);
+    this.myForm.controls['Pictures'].setValue(prod.Pictures);
+    this.myForm.controls['Color'].setValue(prod.Color);
+    this.myForm.controls['Size'].setValue(prod.Size);
+    this.myForm.controls['Category_Id'].setValue(prod.Category_Id);
+    this.myForm.controls['Retailer_Id'].setValue(prod.Retailer_Id);
+    this.myForm.controls['BrandName'].setValue(prod.BrandName);
+  });
+}
+Delete(prodId:string)
+{
+this.prodService.delProduct(prodId).subscribe(()=>
+{
+  this.message = "Deleted";
+  this.prodService.getProducts();
+  this.productIdtoUpdate = null;
+  this.myForm.reset();
+})
 }
   onClose(){
     this.myForm.reset();
+    this.message = null; 
+    this.datasaved= null;
   }
 
   ngOnInit(): void {
     this.prodService.getProducts().subscribe((data)=>{
       this.products = data;
-      //console.log(data);
+      //console.log(data); 
       })
   }
 

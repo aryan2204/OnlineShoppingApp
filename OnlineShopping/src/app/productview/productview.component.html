@@ -9,6 +9,9 @@
   
   <div class="container">
     <h2>Product Table</h2>
+    <p *ngIf = "datasaved">
+      {{message}}
+    </p>
     <button class="btn btn-primary btn-lg pull-right" (click)="show()">Add Product</button><br />
     <div class="table-responsive">
       <table class="table">
@@ -42,8 +45,8 @@
             <td>{{p.BrandName}}</td>
             <td>{{p.Category_Id}}</td>
             <td>{{p.Retailer_Id}}</td>
-            <td><button class="btn btn-success"><span class="glyphicon glyphicon-edit"></span></button></td>
-            <td><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+            <td><button class="btn btn-success" (click)="Edit(product.id)"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td><button class="btn btn-danger" (click)="Delete(product.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
           </tr>
         </tbody>
       </table>
@@ -132,9 +135,7 @@
       </div>
     </div>
 </div>
-    <footer class="container-fluid">
-      <p>Contact - 011 23456321</p>
-    </footer>
+
 
 </body>
 </html>
